@@ -1,0 +1,164 @@
+.admin-page h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: #1a1a2e;
+}
+
+.admin-subtitle {
+  color: #777;
+  font-size: 0.88rem;
+  margin: 0 0 20px;
+}
+
+.admin-card {
+  background: #fff;
+  border: 1px solid #eaeaf2;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-card h2 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin: 0 0 10px;
+}
+
+.admin-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.admin-stat {
+  background: #f7f7fb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.admin-stat-label {
+  font-size: 0.72rem;
+  color: #888;
+}
+
+.admin-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.admin-quick-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid #eaeaf2;
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.admin-quick-link:hover {
+  border-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.admin-quick-link-icon {
+  font-size: 1.3rem;
+}
+
+.admin-quick-link-title {
+  font-weight: 600;
+  color: #1a1a2e;
+  font-size: 0.9rem;
+}
+
+.admin-quick-link-desc {
+  color: #888;
+  font-size: 0.78rem;
+}
+
+.admin-form-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-form-row input,
+.admin-form-row select {
+  flex: 1;
+  min-width: 140px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #dcdce6;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.admin-button {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+}
+
+.admin-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.admin-button-secondary {
+  background: #f3f0ff;
+  color: #5b21b6;
+  border: 1px solid #e0d9ff;
+}
+
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-list li {
+  background: #f7f7fb;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.admin-list-meta {
+  color: #999;
+  font-size: 0.76rem;
+}
+
+.admin-result-message {
+  font-size: 0.82rem;
+  color: #333;
+  background: #f7f7fb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 8px;
+}

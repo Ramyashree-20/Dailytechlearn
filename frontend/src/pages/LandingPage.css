@@ -1,0 +1,127 @@
+.landing-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f7f7fb 0%, #fff 100%);
+  font-family: system-ui, sans-serif;
+  padding: 40px 20px 60px;
+  box-sizing: border-box;
+}
+
+.landing-hero {
+  max-width: 640px;
+  margin: 0 auto 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.landing-badge {
+  font-weight: 700;
+  color: #4f46e5;
+  font-size: 0.95rem;
+}
+
+.landing-hero h1 {
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.landing-subtitle {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 520px;
+}
+
+.landing-cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.landing-cta-primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.3);
+  transition: transform 0.15s ease;
+}
+
+.landing-cta-primary:hover {
+  transform: translateY(-2px);
+}
+
+.landing-cta-secondary {
+  background: #fff;
+  border: 1px solid #e0d9ff;
+  color: #5b21b6;
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.landing-cta-secondary:hover {
+  background: #f3f0ff;
+}
+
+.landing-features {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.landing-feature-card {
+  background: #fff;
+  border: 1px solid #eaeaf2;
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease;
+}
+
+.landing-feature-card:hover {
+  transform: translateY(-3px);
+}
+
+.landing-feature-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.landing-feature-card h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #1a1a2e;
+}
+
+.landing-feature-card p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .landing-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .landing-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

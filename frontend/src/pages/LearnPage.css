@@ -1,0 +1,36 @@
+.learn-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.learn-page h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: #1a1a2e;
+}
+
+.learn-subtitle {
+  color: #777;
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.learn-progress {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef0ff;
+  border-radius: 999px;
+  padding: 4px 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}

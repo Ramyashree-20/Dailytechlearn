@@ -1,0 +1,257 @@
+.revision-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.revision-page h1 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: #1a1a2e;
+}
+
+.revision-progress {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #eef0ff;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.revision-subtitle {
+  color: #777;
+  font-size: 0.88rem;
+  margin: 0 0 24px;
+}
+
+.revision-card-stage {
+  display: flex;
+  justify-content: center;
+}
+
+.revision-card {
+  background: #fff;
+  border: 1px solid #eaeaf2;
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  animation: revision-card-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+@keyframes revision-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dq-difficulty {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.dq-difficulty-beginner {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.dq-difficulty-intermediate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.dq-difficulty-advanced {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.revision-question {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.45;
+}
+
+.revision-answer {
+  background: #f7f7fb;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 0.92rem;
+  color: #333;
+  line-height: 1.55;
+  width: 100%;
+  box-sizing: border-box;
+  animation: revision-answer-in 0.18s ease-out;
+}
+
+@keyframes revision-answer-in {
+  from {
+    opacity: 0;
+    transform: scaleY(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.revision-reveal {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.revision-reveal:hover {
+  transform: translateY(-1px);
+}
+
+.revision-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.revision-easy,
+.revision-hard {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.revision-easy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.revision-hard {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.revision-easy:hover,
+.revision-hard:hover {
+  transform: translateY(-2px);
+}
+
+.revision-easy:disabled,
+.revision-hard:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.revision-ask-ai {
+  background: none;
+  border: 1px solid #e0d9ff;
+  color: #5b21b6;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.revision-ask-ai:hover {
+  background: #f3f0ff;
+}
+
+/* Success/feedback state after answering */
+.revision-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 0;
+  width: 100%;
+  animation: revision-feedback-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes revision-feedback-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.revision-feedback-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  animation: revision-icon-pop 0.4s ease-out;
+}
+
+@keyframes revision-icon-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.revision-feedback-text {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.revision-feedback-next {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.revision-feedback-easy .revision-feedback-text {
+  color: #166534;
+}
+
+.revision-feedback-hard .revision-feedback-text {
+  color: #92400e;
+}
+
+@media (max-width: 560px) {
+  .revision-card {
+    padding: 22px 18px;
+  }
+
+  .revision-question {
+    font-size: 1.05rem;
+  }
+}

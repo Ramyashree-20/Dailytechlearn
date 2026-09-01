@@ -1,0 +1,38 @@
+# Render Blueprint for DailyTechLearn's backend (Phase 19).
+#
+# This file describes the deployment; it does NOT deploy anything by
+# itself. To use it: push this repo to GitHub, then in the Render
+# dashboard choose "New +" -> "Blueprint" and point it at the repo. Render
+# reads this file and creates the service below, prompting you for the
+# env vars marked `sync: false`.
+#
+# This project does NOT include a Render-managed Postgres database here on
+# purpose — see docs/architecture.md and README.md's "Deploying to
+# production" section for why production should use its own,
+# separately-provisioned Postgres instance rather than one Render creates
+# automatically from this file (avoids ever accidentally wiring a fresh
+# deploy to throwaway or mismatched infrastructure).
+
+services:
+  - type: web
+    name: dailytechlearn-backend
+    runtime: python
+    rootDir: backend
+    # No --reload (that's dev-only) and no hardcoded port — Render injects
+    # $PORT. Migrations run before the server starts on every deploy; see
+    # the "Deploying to production" README section for why that's safe at
+    # this project's current single-instance scale.
+    buildCommand: pip install -r requirements.txt
+    startCommand: alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false # set to your production Postgres connection string
+      - key: GROQ_API_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false # generate with: python -c "import secrets; print(secrets.token_hex(32))"
+      - key: CORS_ORIGINS
+        sync: false # your Vercel frontend URL(s), comma-separated, e.g. https://dailytechlearn.vercel.app
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
