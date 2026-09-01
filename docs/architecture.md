@@ -1305,6 +1305,37 @@ neither changed the core architecture.
   explicit manual step for the project owner, documented in README, rather
   than decided unilaterally.
 
+### Post-Phase-19 fix: migration order was invalid for a fresh database
+
+A real first deployment attempt (Render + a fresh Neon Postgres) failed
+during `alembic upgrade head` with `relation "topics" does not exist` —
+the original root migration (`5907ee5aeff8`, "add questions table")
+creates `questions` with `FOREIGN KEY(topic_id) REFERENCES topics(id)`,
+but **no migration in the project's history ever created `topics`**. It
+had always worked locally (and in every prior phase's testing) only
+because `topics`/`questions` were originally created directly via
+`Base.metadata.create_all()` in Phase 2/3, before Alembic was introduced —
+every database this project had ever run against already had a `topics`
+table Alembic never actually tracked. A genuinely empty database is the
+one case that had never actually been exercised until a real deployment
+attempted it.
+
+Fixed by inserting a new migration, `f3230de49d24` ("create topics
+table"), as the new chain root (`down_revision=None`), with `5907ee5aeff8`
+now pointing to it instead of `None`. It recreates exactly the columns
+`topics` had at that point in the project's history (`id`, `name`,
+`description` — `category_id`/`importance`/`active` are still added later
+by `345a257932b1`, unchanged). Verified against a genuinely empty target
+(an isolated Postgres schema, not a new database and not the real local
+one) that the full chain — `upgrade head` → `downgrade base` →
+`upgrade head` — now runs cleanly end to end, creating all 9 application
+tables in the correct order. The real local database was confirmed
+unaffected throughout: its recorded `alembic_version` was already at the
+existing head, so inserting a new *root* (rather than a new head) is a
+no-op for any database already past that point in the chain — Alembic
+only ever walks forward from a database's current recorded version, never
+retroactively.
+
 ## Planned layers / additions (future phases)
 
 - **Deeper authentication** — OAuth/social login (Google/GitHub), refresh

@@ -1,7 +1,7 @@
 """add questions table
 
 Revision ID: 5907ee5aeff8
-Revises: 
+Revises: f3230de49d24
 Create Date: 2026-08-28 12:20:39.193451
 
 """
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
 revision: str = '5907ee5aeff8'
-down_revision: Union[str, None] = None
+down_revision: Union[str, None] = 'f3230de49d24'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
