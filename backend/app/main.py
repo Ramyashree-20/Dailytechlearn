@@ -9,7 +9,7 @@ from app.database import get_db
 from app.routers import ai, auth, categories, chat, content, external, learning, questions, topics
 
 app = FastAPI(title="DailyTechLearn API")
-
+print("CORS_ORIGINS:", CORS_ORIGINS)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
